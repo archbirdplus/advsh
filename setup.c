@@ -27,7 +27,7 @@ setup(fast)
 	/* error package setup */
 	if ( debug ) {
 		if ( (_logfp = fopen(LOGFILE, "a")) == NULL )
-			perror("setup: Can't fopen %s", LOGFILE);
+			jcerror("setup: Can't fopen %s", LOGFILE);
 	} else
 		_logfp = NULL;
 		
@@ -93,7 +93,7 @@ setstruct()
 	sprintf(tmpdir, "/tmp/ash.%05.5d", getuid());
 	if ( !access(tmpdir, F_OK) )
 		if ( rmdir(tmpdir) )
-			perror("setstruct: Can't rmdir %s", tmpdir);
+			jcerror("setstruct: Can't rmdir %s", tmpdir);
 
 	if ( mkdir(tmpdir, MODE) < 0 )
 		error("setstruct: Can't mkdir %s", tmpdir);

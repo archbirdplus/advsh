@@ -82,9 +82,9 @@ cleanup(signo)
 	/* clean up temp directory */
 	dirp = opendir(tmpdir);
 	if ( dirp == NULL ) {
-		perror("cleanup: Can't opendir %s", tmpdir);
+		jcerror("cleanup: Can't opendir %s", tmpdir);
 		if ( rmdir(tmpdir) )
-			perror("cleanup: Can't rmdir %s", tmpdir);
+			jcerror("cleanup: Can't rmdir %s", tmpdir);
 		exit(errno);
 	}
 
@@ -94,12 +94,12 @@ cleanup(signo)
 		if ( ent->d_name[0] ) {
 			sprintf(name, "%s/%s", tmpdir, ent->d_name);
 			if ( unlink(name) )
-				perror("cleanup: Can't unlink %s", name);
+				jcerror("cleanup: Can't unlink %s", name);
 		}
 	}
 	closedir(dirp);
 	if ( rmdir(tmpdir) )
-		perror("cleanup: Can't rmdir %s", tmpdir);
+		jcerror("cleanup: Can't rmdir %s", tmpdir);
 
 	if ( signo == 0 )  /* we were not called by a signal */
 		doscores();

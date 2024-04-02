@@ -74,7 +74,7 @@ dodebug(signo)
 			debug_make_item();
 		else if ( comp("cd") ) {
 			if ( chdir(args[1]) )
-				perror("Can't change to %s", args[1]);
+				jcerror("Can't change to %s", args[1]);
 		}
 		else if ( line[0] == '?' )
 			debug_help();

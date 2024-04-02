@@ -72,7 +72,7 @@ douse(args)
 	
 		if ( obj->it_type == OBJ_FILE ) {
 			if ( stat(obj->it_path, &stbuf) ) {
-				perror("douse: Can't stat %s", obj->it_path);
+				jcerror("douse: Can't stat %s", obj->it_path);
 				return;
 			}
 			if ( stbuf.st_uid != getuid()  && !obj->it_magic ) {

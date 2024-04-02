@@ -29,7 +29,7 @@ dowield(name)
 	}
 
 	if ( stat(tmp->it_path, &stbuf) ) {
-		perror("dowield: Can't stat %s", tmp->it_path);
+		jcerror("dowield: Can't stat %s", tmp->it_path);
 		return;
 	}
 

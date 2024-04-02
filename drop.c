@@ -92,7 +92,7 @@ drop_file(obj)
 	}
 
 	if ( stat(obj->it_path, &stbuf) ) {
-		perror("drop_file: Can't stat %s", obj->it_path);
+		jcerror("drop_file: Can't stat %s", obj->it_path);
 		return;
 	}
 
@@ -102,21 +102,21 @@ drop_file(obj)
 	if ( fd < 0 ) {
 		printf("%s disapears as it touches the floor.\n",
 			item_name(obj, "The"));
-		perror("drop_file: Can't open %s", tail(obj->it_path));
+		jcerror("drop_file: Can't open %s", tail(obj->it_path));
 		return;
 	}
 
 	if ( in < 0 ) {
 		printf("%s disapears as it touches the floor.\n",
 			 item_name(obj, "The"));
-		perror("drop_file: Can't open %s", obj->it_path);
+		jcerror("drop_file: Can't open %s", obj->it_path);
 		close(fd);
 		return;
 	}
 
 	while ( (n = read(in, buf, BUFSIZ)) > 0 )
 		if ( write(fd, buf, n) != n ) {
-			perror("drop_file: Write error to %s",
+			jcerror("drop_file: Write error to %s",
 			     tail(obj->it_path));
 			break;
 		}
