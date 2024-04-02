@@ -1,0 +1,4 @@
+
+install:
+	cp libwcb.a ../
+
