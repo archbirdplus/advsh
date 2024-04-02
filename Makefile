@@ -14,23 +14,26 @@ MANDIR	      = /usr/man/man1
 
 MANUAL	      = advsh.1
 
-EXTHDRS	      = /usr/include/ctype.h \
-		/usr/include/errno.h \
-		/usr/include/pwd.h \
-		/usr/include/setjmp.h \
-		/usr/include/signal.h \
-		/usr/include/stdio.h \
-		/usr/include/sys/dir.h \
-		/usr/include/sys/file.h \
-		/usr/include/sys/ioctl.h \
-		/usr/include/sys/stat.h \
-		/usr/include/sys/ttychars.h \
-		/usr/include/sys/ttychars.h \
-		/usr/include/sys/ttydev.h \
-		/usr/include/sys/ttydev.h \
-		/usr/include/sys/types.h \
-		hgets/hist.h \
-		jc/jobs.h
+USR_INCLUDE=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+
+EXTHDRS	      = $(USR_INCLUDE)/ctype.h \
+		$(USR_INCLUDE)/errno.h \
+		$(USR_INCLUDE)/pwd.h \
+		$(USR_INCLUDE)/setjmp.h \
+		$(USR_INCLUDE)/signal.h \
+		$(USR_INCLUDE)/stdio.h \
+		$(USR_INCLUDE)/sys/dir.h \
+		$(USR_INCLUDE)/sys/file.h \
+		$(USR_INCLUDE)/sys/ioctl.h \
+		$(USR_INCLUDE)/sys/stat.h \
+		$(USR_INCLUDE)/sys/ttychars.h \
+		$(USR_INCLUDE)/sys/ttychars.h \
+		$(USR_INCLUDE)/sys/ttydev.h \
+		$(USR_INCLUDE)/sys/ttydev.h \
+		$(USR_INCLUDE)/sys/types.h \
+
+		#hgets/hist.h \
+		#jc/jobs.h
 
 HDRS	      = cmdlist.h \
 		defs.h \
@@ -158,74 +161,74 @@ $(MANDIR)/$(MANUAL): $(MANUAL)
 		install $(IFLAGS) -c -m 0644 $(MANUAL) $(MANDIR)
 		@ls -lgs $(MANDIR)/$(MANUAL)
 
-.DEFAULT:;	co $@
+# .DEFAULT:;	co $@
 
 .SUFFIXES:;
 .SUFFIXES:	.o .c
 ###
-alias.o: /usr/include/stdio.h defs.h types.h /usr/include/pwd.h
-command.o: /usr/include/stdio.h /usr/include/ctype.h \
-	/usr/include/sys/file.h defs.h types.h /usr/include/pwd.h functs.h \
+alias.o: $(USR_INCLUDE)/stdio.h defs.h types.h $(USR_INCLUDE)/pwd.h
+command.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/ctype.h \
+	$(USR_INCLUDE)/sys/file.h defs.h types.h $(USR_INCLUDE)/pwd.h functs.h \
 	cmdlist.h
-debug.o: /usr/include/stdio.h /usr/include/signal.h \
-	/usr/include/sys/types.h /usr/include/sys/ioctl.h \
-	/usr/include/sys/ttychars.h /usr/include/sys/ttydev.h \
-	/usr/include/sys/ttychars.h /usr/include/sys/ttydev.h defs.h types.h \
-	/usr/include/pwd.h jc/jobs.h
-drop.o: /usr/include/stdio.h /usr/include/signal.h /usr/include/sys/types.h \
-	/usr/include/sys/stat.h /usr/include/sys/file.h defs.h types.h \
-	/usr/include/pwd.h
-file.o: /usr/include/stdio.h /usr/include/signal.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/stat.h defs.h types.h \
-	/usr/include/pwd.h
-help.o: /usr/include/stdio.h defs.h functs.h
-hist.o: /usr/include/stdio.h /usr/include/ctype.h defs.h hgets/hist.h
-hit.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/stat.h defs.h types.h \
-	/usr/include/pwd.h jc/jobs.h
-inventory.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h defs.h types.h /usr/include/pwd.h
-items.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/stat.h defs.h types.h \
-	/usr/include/pwd.h
-look.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/dir.h \
-	/usr/include/sys/stat.h defs.h types.h /usr/include/pwd.h
-magic.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/dir.h defs.h types.h \
-	/usr/include/pwd.h jc/jobs.h
-main.o: /usr/include/stdio.h /usr/include/signal.h /usr/include/errno.h \
-	/usr/include/sys/types.h /usr/include/sys/dir.h \
-	/usr/include/sys/file.h defs.h types.h /usr/include/pwd.h jc/jobs.h
-move.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/stat.h /usr/include/sys/file.h defs.h types.h \
-	/usr/include/pwd.h
-names.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h defs.h types.h /usr/include/pwd.h names.h
-parse.o: /usr/include/stdio.h /usr/include/ctype.h defs.h types.h \
-	/usr/include/pwd.h
-pickup.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/stat.h /usr/include/sys/file.h defs.h types.h \
-	/usr/include/pwd.h
-say.o: /usr/include/stdio.h
-scores.o: /usr/include/stdio.h defs.h types.h /usr/include/pwd.h
-setup.o: /usr/include/stdio.h /usr/include/signal.h \
-	/usr/include/sys/types.h /usr/include/sys/ioctl.h \
-	/usr/include/sys/ttychars.h /usr/include/sys/ttydev.h \
-	/usr/include/sys/ttychars.h /usr/include/sys/ttydev.h \
-	/usr/include/sys/file.h defs.h types.h /usr/include/pwd.h \
+debug.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h \
+	$(USR_INCLUDE)/sys/types.h $(USR_INCLUDE)/sys/ioctl.h \
+	$(USR_INCLUDE)/sys/ttychars.h $(USR_INCLUDE)/sys/ttydev.h \
+	$(USR_INCLUDE)/sys/ttychars.h $(USR_INCLUDE)/sys/ttydev.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h jc/jobs.h
+drop.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/stat.h $(USR_INCLUDE)/sys/file.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+file.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/stat.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+help.o: $(USR_INCLUDE)/stdio.h defs.h functs.h
+hist.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/ctype.h defs.h hgets/hist.h
+hit.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/stat.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h jc/jobs.h
+inventory.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h defs.h types.h $(USR_INCLUDE)/pwd.h
+items.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/stat.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+look.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/dir.h \
+	$(USR_INCLUDE)/sys/stat.h defs.h types.h $(USR_INCLUDE)/pwd.h
+magic.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/dir.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h jc/jobs.h
+main.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h $(USR_INCLUDE)/errno.h \
+	$(USR_INCLUDE)/sys/types.h $(USR_INCLUDE)/sys/dir.h \
+	$(USR_INCLUDE)/sys/file.h defs.h types.h $(USR_INCLUDE)/pwd.h jc/jobs.h
+move.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/stat.h $(USR_INCLUDE)/sys/file.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+names.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h defs.h types.h $(USR_INCLUDE)/pwd.h names.h
+parse.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/ctype.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+pickup.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/stat.h $(USR_INCLUDE)/sys/file.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
+say.o: $(USR_INCLUDE)/stdio.h
+scores.o: $(USR_INCLUDE)/stdio.h defs.h types.h $(USR_INCLUDE)/pwd.h
+setup.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h \
+	$(USR_INCLUDE)/sys/types.h $(USR_INCLUDE)/sys/ioctl.h \
+	$(USR_INCLUDE)/sys/ttychars.h $(USR_INCLUDE)/sys/ttydev.h \
+	$(USR_INCLUDE)/sys/ttychars.h $(USR_INCLUDE)/sys/ttydev.h \
+	$(USR_INCLUDE)/sys/file.h defs.h types.h $(USR_INCLUDE)/pwd.h \
 	hgets/hist.h
-shell.o: /usr/include/stdio.h /usr/include/setjmp.h \
-	/usr/include/sys/types.h /usr/include/sys/stat.h types.h \
-	/usr/include/pwd.h defs.h hgets/hist.h
-sigs.o: /usr/include/stdio.h /usr/include/signal.h
-source.o: /usr/include/stdio.h /usr/include/pwd.h /usr/include/sys/file.h
-use.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/stat.h defs.h types.h \
-	/usr/include/pwd.h jc/jobs.h
-util.o: /usr/include/stdio.h /usr/include/ctype.h /usr/include/sys/types.h \
-	/usr/include/sys/dir.h defs.h types.h /usr/include/pwd.h
-vars.o: /usr/include/stdio.h defs.h types.h /usr/include/pwd.h
-wield.o: /usr/include/stdio.h /usr/include/sys/types.h \
-	/usr/include/sys/file.h /usr/include/sys/stat.h defs.h types.h \
-	/usr/include/pwd.h
+shell.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/setjmp.h \
+	$(USR_INCLUDE)/sys/types.h $(USR_INCLUDE)/sys/stat.h types.h \
+	$(USR_INCLUDE)/pwd.h defs.h hgets/hist.h
+sigs.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/signal.h
+source.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/pwd.h $(USR_INCLUDE)/sys/file.h
+use.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/stat.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h jc/jobs.h
+util.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/ctype.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/dir.h defs.h types.h $(USR_INCLUDE)/pwd.h
+vars.o: $(USR_INCLUDE)/stdio.h defs.h types.h $(USR_INCLUDE)/pwd.h
+wield.o: $(USR_INCLUDE)/stdio.h $(USR_INCLUDE)/sys/types.h \
+	$(USR_INCLUDE)/sys/file.h $(USR_INCLUDE)/sys/stat.h defs.h types.h \
+	$(USR_INCLUDE)/pwd.h
