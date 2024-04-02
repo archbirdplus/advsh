@@ -1,0 +1,23 @@
+ADVenture SHell
+
+This is a silly and poorly written program I hacked up several years ago.
+At the time, it was an attempt to learn how job control works and to write
+an equivalent to csh (I never got that far, but it does have variables,
+aliases, history, job control, etc.).
+
+It also makes it painful to get real work done, since you can't just run
+programs.  You have to find magical items to allow you to do the things
+you would want to.
+
+The tar file includes two Vax libraries, libwcb.a (Wendell Craig Baker's
+history library) and libjc.a (my job control library).  I don't have the
+sources to libwcb so don't expect to run this on any architecture other
+than a Vax unless you remove the history functionality.
+
+I have no idea whether or not this program still even compiles.  The last
+time I played with it was years ago and I don't know when the last time I
+hacked on it was.  Have fun,
+
+John Coker
+john@Berkeley.EDU
+(415) 643-7354

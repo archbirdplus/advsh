@@ -1,0 +1,193 @@
+.TH ADVSH 1 "16 April, 1984"
+.UC 4
+.SH NAME
+.PP
+.I advsh
+\- the adventure shell.
+.SH DESCRIPTION
+.PP
+You are suddenly thrown into the jungles of a 
+.I UNIX
+file system, with only your wits to help you.
+You must search through torturous directories, and battle the
+.I UNIX
+operating system, all for no apparent goal.
+.PP
+You start out as a novice hacker and work your way up to system god
+as you find danger and excitement in the land of
+.I UNIX.
+Each directory may contain magic items and/or files and other
+passageways (directories).
+You should
+.I get
+(pick up) the magic items you find, as they
+do many helpful things,
+but beware of the deadly
+.B ``Wand of Emacs.''
+.SH OPTIONS
+.IP -f
+(fast)  Start up the shell as quickly as possible, and don't
+source the ~/.advshrc file.
+.SH MAGIC ITEMS
+.IP ?
+(scroll) Scrolls are good for identifying things and manipulating them,
+but there are some fun ones in there also.
+Use
+.I read
+[scroll] to use one.
+.IP !
+(potion) Potions are good for increasing strength (so you can carry more)
+and seeing invisible things, but there are some nasties too.
+Use
+.I quaff
+[potion] to use one.
+.IP /
+(wand) Wands are good for teleporting and executing commands, but there
+are also some other surprises.
+Use
+.I zap
+[wand] to use one.
+.PP
+Use
+.I pick up
+[magic item]
+to get an item lying in a directory, or
+.I drop
+to remove an item from your pack.
+.I Inventory
+lists the items you are carrying.
+.I Use
+allows you to access the properties of items or files.
+You must be carrying an item (or wielding it) to use it in any way.
+.PP
+Magic Item Categories:
+.sp
+.ta .5i 3i
+.nf
+\0	No Magic	- Not too incredibly useful
+\0	Teleportation	- Teleport (cd) to any directory.
+\0	Manipulation	- Execute any commands.
+\0	Identification	- Identify a magic item.
+\0	See Invisible	- See invisible ('.') files.
+\0	Memory Loss	- Forget what you are carrying.
+\0	Blindness	- You are covered by a cloak of darkness.
+\0	Gain Strength	- Allow you to carry more in your pack.
+\0	Lose Strength	- Decrease carrying ability.
+\0	Enter Emacs	- Throws you into an Emacs pit.
+\0	Hidden Devices	- Execute a command in the background.
+\0	Enchant File	- Make a file usable even if not owner.
+.fi
+.PP
+There is at least a potion, wand, or scroll, for each category.
+Some categories have two of the magic types (a few even have all three).
+.SH PASSAGES [directories]
+.PP
+You may enter any passageway that has not been locked by another player.
+Use
+.I look
+to see the contents of the room, or and adjacent one, and
+.I move
+to enter an adjacent directory.
+Note:
+you can (logically) only
+.I move 
+or
+.I look
+into an adjacent directory, you must have a scroll (or wand) of
+.I Teleportation
+To jump to an unconnected `room.'
+The only exception is that you can jump back to your home directory with
+.I home
+or
+.I xyzzy.
+.SH FILES
+.PP
+Files may be picked up and carried, assuming you have the strength.
+You may then
+.I use
+any file you are carrying, and you own.
+To make better use of a file, you should
+.I wield
+it and then you can
+.I hit
+other files, etc.
+You must own a file, or it must be enchanted for you to wield it.
+To get rid of a file, you can
+.I destroy
+(remove) it.
+.SH MISCELANEOUS
+.PP
+.I Ash
+parses the input lines very much like
+.I csh(1)
+does, but is slightly less complete.
+For example, the only quotes recognized are the `double-quote' marks (").
+There is no `back-quote' (`) facility for in-line command execution.
+.PP
+The 
+.I csh(1)
+built-in commands, 
+.I alias, unalias, set,
+and
+.I unset
+are also provided,
+and work just as they do in the shell, with one notable exception.
+Set syntax is "set <var> string(s)" (note space and no equals sign).
+This is done to rationalize the alias/set syntax.
+.PP
+There are, also, history substitutions, (courtesy of Wendell Baker),
+this history mechanism works as in
+.I csh(1)
+with `exclam' (!) and `caret' (^) having their usual functions.
+.PP
+The metacharacters `tilde' (~), used to represent your (or another user's)
+home directory; and `dollar' ($), to introduce a variable name,
+are used in the same way as in
+.I csh(1).
+The special meaning of any magic character may be escaped by a backslash (\\).
+.PP
+If a file named
+.I .advshrc
+exists in your home directory, the commands it contains will be
+executed before the shell starts interactive execution, (unless the -f 
+flag has been given).
+Any line starting with a `hash mark' (#) is taken as a comment (ignored).
+This is useful for comments in your ~/.advshrc file, while 
+setting up aliases, and variables.
+Note: this comment convention works only when reading the ~/.cshrc file;
+the `hash-marks' are taken literally when typed interactively.
+The 
+.I source
+command exits, as in the shell, to execute the commands
+in another file as if they were typed at the terminal as input.
+.PP
+There is also an (intentionally) limited job control facility;
+commands can be executed in the background if one has a wand
+(or scroll) of 
+.I Hidden Devices.
+For foregrounding, the `percent-sign' (%) conventions of
+.I csh(1)
+are followed.
+.PP
+The
+.I help
+command will print out a (very) short help message.
+Refer to this manual page for most questions.
+.SH VARIABLES
+.PP
+There are some special shell variables used by the shell to control
+some of it's actions.
+For example, ``prompt'' is the string printed when the shell is 
+ready for commands, and ``mail'' is used as the file to check for new mail.
+The variable ``name'' is used for identifying the user;
+use it to reinforce your ego, (e.g. ``John "Unix God" Coker'').
+The ``name'' variable is put into the environment as ``NAME,''
+with the default being your login name.
+The ``history'' variable contains the number of history lines to
+save, (the default is 20).
+.SH AUTHOR
+.PP
+John Coker  -- a real live unix god.  :-)
+.SH BUGS
+.PP
+If there were any, I'd be the first to tell you ...
