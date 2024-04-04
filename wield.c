@@ -84,7 +84,7 @@ doputaway()
 	obj = me.pl_weapon;
 	me.pl_weapon = NULL;
 	if ( add_obj(obj) ) {
-		puts("%s falls to the floor.\n", item_name(obj, "The"));
+		printf("%s falls to the floor.\n", item_name(obj, "The"));
 		drop_item(obj);
 		return;
 	}
