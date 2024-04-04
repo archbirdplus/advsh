@@ -1,19 +1,22 @@
 // Re-created hist.h header.
 
-typedef struct HQUEUE {
+typedef struct hist HIST;
+
+struct hist {
+    HIST *hi_next;
+    int hi_argc;
+    char *hi_argv;
+};
+
+typedef struct hqueue {
     int hq_count;
     int hq_line;
-    int hq_head;
+    HIST *hq_head;
 } HQUEUE;
-typedef struct HIST {
-    int hi_next;
-    int hi_argc;
-    int hi_argv;
-} HIST;
 
 int h_errno;
-// errno's:
-int H_NOERROR;
-int H_EMPTY;
-int H_EOF;
+
+#define H_NOERROR 0
+#define H_EMPTY 1
+#define H_EOF 2
 
