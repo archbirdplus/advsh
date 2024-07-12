@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/file.h>
@@ -30,7 +31,7 @@ setitems(dir)
 
 	if ( dir )  /* handed a directory */
 		if ( chdir(dir) )
-			jcerror("setitems: Can't chdir to %s", dir);
+			jcperror("setitems: Can't chdir to %s", dir);
 	getwd(wd); /* get the true pathname */
 
 	/* set magic items for directory */
@@ -66,7 +67,7 @@ setitems(dir)
 	}
 
 	if ( chdir(cur) )	/* go back to original directory */
-		jcerror("setitems: Can't chdir back to %s", cur);
+		jcperror("setitems: Can't chdir back to %s", cur);
 
 	/* 
 	 *  Make sure the current directory is at head of list
@@ -163,7 +164,7 @@ getfilename(obj, fname)
 			line[BUFSIZ];
 
 	if ( stat(fname, &stbuf) ) {
-		jcerror("getfilename: Can't stat %s", fname);
+		jcperror("getfilename: Can't stat %s", fname);
 		printf("Can't decipher the file %s\n", fname);
 		return;
 	}

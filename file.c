@@ -37,7 +37,7 @@ dodest(args)
 		}
 
 		if ( stat(args[i], &stbuf) ) {
-			jcerror("dodest: Can't stat %s", args[i]);
+			jcperror("dodest: Can't stat %s", args[i]);
 			return;
 		}
 
@@ -117,22 +117,22 @@ copyfile(from, to)
 	sighold(SIGQUIT);
 
 	if ( stat(from, &stbuf) < 0 ) {
-		jcerror("copyfile: Can't stat %s", from);
+		jcperror("copyfile: Can't stat %s", from);
 		return(errno);
 	}
 
 	if ( (in = open(from, O_RDONLY)) < 0 ) {
-		jcerror("copyfile: Can't open %s", from);
+		jcperror("copyfile: Can't open %s", from);
 		return(errno);
 	}
 	if ( (out = open(to, O_CREAT | O_WRONLY, (int) stbuf.st_mode)) < 0 ) {
-		jcerror("copyfile: Can't open %s", to);
+		jcperror("copyfile: Can't open %s", to);
 		close(in);
 		return(errno);
 	}
 	while ( (n = read(in, buf, BUFSIZ)) > 0 )
 		if ( write(out, buf, n) != n ) {
-			jcerror("copyfile: Write error to %s", to);
+			jcperror("copyfile: Write error to %s", to);
 			return(errno);
 		}
 

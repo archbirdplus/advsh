@@ -20,7 +20,7 @@ dosource(file)
 	}
 
 	if ( (fp = fopen(file, "r")) == NULL ) {
-		jcerror("I can't open %s", file);
+		jcperror("I can't open %s", file);
 		return;
 	}
 	

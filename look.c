@@ -122,7 +122,7 @@ list_dir(dir)
 	int		d, f;
 
 	if ( (dirp = opendir(dir)) == NULL ) {
-		jcerror("list_dir: Can't opendir %s", dir);
+		jcperror("list_dir: Can't opendir %s", dir);
 		return;
 	}
 
@@ -133,7 +133,7 @@ list_dir(dir)
 
 		sprintf(name, "%s/%s", dir, ent->d_name);
 		if ( stat(name, &stbuf) < 0 ) {
-			jcerror("list_dir: stat %s", name);
+			jcperror("list_dir: stat %s", name);
 			continue;
 		}
 
