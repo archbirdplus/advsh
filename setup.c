@@ -32,7 +32,7 @@ setup(fast)
 		_logfp = NULL;
 		
 	/* startup message */
-	log("startup: inializing for ash ...");
+	jclog("startup: inializing for ash ...");
 
 	/* ignore signals while we're working */
 	sigign(SIGINT);

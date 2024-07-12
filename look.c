@@ -62,7 +62,7 @@ areitems(dir)
 			break;
 	
 	if ( list == NULL ) {  /* not found, add this directory */
-		log("areitems: '%s' not in list, adding it.", dir);
+		jclog("areitems: '%s' not in list, adding it.", dir);
 		setitems(dir);
 		list = me.pl_list;  /* setitems puts last one on top */
 	}

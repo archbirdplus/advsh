@@ -84,7 +84,7 @@ douse(args)
 	}
 
 	if ( obj == NULL ) {
-		log("douse: obj not assigned.");
+		jclog("douse: obj not assigned.");
 		return;
 	}
 

@@ -155,7 +155,7 @@ enchant()
 		return;
 	
 	if ( obj->it_type != OBJ_FILE ) {
-		log("enchant: object %s not a file.", obj->it_name);
+		jclog("enchant: object %s not a file.", obj->it_name);
 		return;
 	}
 
