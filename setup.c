@@ -66,7 +66,7 @@ setup(fast)
 
 setstruct()
 {
-	char		line[BUFSIZ], *get_var();
+	char		line[BUFSIZ];
 	struct passwd	*pwptr;
 
 	/* setup current directory */
@@ -130,7 +130,7 @@ setstruct()
 sethist(fast)
 {
 	int	hnum;
-	char	*p, *get_var();
+	char	*p;
 
 	if ( fast )
 		hnum = 0;

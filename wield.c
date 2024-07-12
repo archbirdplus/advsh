@@ -11,9 +11,8 @@ extern PLAYER 	me;
 dowield(name)
 	char 	*name;
 {
-	ITEM 		*tmp, *find_item(), *get_item(), *add_obj();
+	ITEM 		*tmp, *find_item(), *get_item();
 	struct stat 	stbuf;
-	char 		*item_name();
 
 	if ( name == NULL )
 		tmp = find_item(OBJ_FILE);

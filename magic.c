@@ -61,8 +61,7 @@ manipulate()
 
 identify()
 {
-	ITEM 	*obj, 
-		*find_item();
+	ITEM 	*obj;
 	char 	*item_name();
 
 	if ( (obj = find_item(0)) == NULL )

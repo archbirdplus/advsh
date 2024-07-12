@@ -21,7 +21,7 @@ extern int	h_hist;
 
 shell()
 {
-	char 	*line, *get_var();
+	char 	*line;
 	int  	i, n = 0;
 
 	if ( !isloginsh() )  /* don't check mail if login already has */
@@ -71,7 +71,7 @@ shell()
 
 printprompt()
 {
-	char	*p, *get_var();
+	char	*p;
 	int	num;
 
 	if ( (p = get_var("prompt")) == NULL )	/* no prompt */

@@ -16,7 +16,7 @@ dopickup(args)
 			*areitems(), *add_obj();
 	struct stat 	stbuf;
 	char 		tmpfile[BUFSIZ], *pathname(), 
-			*alloc(), *item_name();
+			*item_name();
 	int 		i;
 
 	if ( args[1] == NULL ) {
