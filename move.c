@@ -17,7 +17,7 @@ domove(dir)
 	char 	*dir;
 {
 	struct stat 	stbuf;
-	char 		line[100], *alloc();
+	char 		line[100];
 
 	if ( !dir || !*dir ) {
 		puts("Move where?\n");
@@ -51,7 +51,7 @@ domove(dir)
 changedir(dir)
 	char	*dir;
 {
-	char	line[BUFSIZ], *alloc();
+	char	line[BUFSIZ];
 
 	if ( chdir(dir) ) {
 		puts("An invisible force blocks your way.");

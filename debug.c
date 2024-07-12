@@ -239,7 +239,6 @@ kill_shell(signo)
 debug_make_item()
 {
 	ITEM	*tmp, *add_obj();
-	char	*alloc();
 
 	tmp = (ITEM *) alloc(sizeof(ITEM));
 

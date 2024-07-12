@@ -23,7 +23,7 @@ setitems(dir)
 {
 	ITEM 		*tmp, *getitem();
 	LIST 		*element, *last;
-	char 		cur[BUFSIZ], wd[BUFSIZ], *alloc();
+	char 		cur[BUFSIZ], wd[BUFSIZ];
 	int 		num;
 
 	getwd(cur);  /* save our current directory */
@@ -100,7 +100,6 @@ ITEM *
 getitem()
 {
 	ITEM 	*tmp;
-	char	*alloc();
 
 	tmp          	= (ITEM *) alloc(sizeof(ITEM));
 	tmp->it_name 	= alloc(10);

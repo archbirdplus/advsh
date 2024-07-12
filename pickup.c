@@ -120,7 +120,7 @@ char *
 pathname(file)
 	char 	*file;
 {
-	char 	line[1024], *p, *alloc();
+	char 	line[1024], *p;
 
 	getwd(line);
 

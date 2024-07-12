@@ -16,7 +16,7 @@ doalias(args)
 {
 	ALIAS 	*tmp, 
 		*last;
-	char 	line[BUFSIZ], *alloc();
+	char 	line[BUFSIZ];
 	int  	i;
 
 	if ( args[1] == NULL ) {	/* just print aliases */

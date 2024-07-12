@@ -8,7 +8,6 @@ set_var(var, str)
 	char 	*var, *str;
 {
 	VARS 	*tmp;
-	char	*alloc();
 
 	tmp = me.pl_vars;
 	while ( tmp ) {

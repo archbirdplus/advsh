@@ -16,7 +16,7 @@ parse(cmd, args)
 {
 	struct passwd 	*pwptr;
 	char 		token[BUFSIZ], word[BUFSIZ], str[100];
-	char 		*c, *t, *w, *s, *get_var(), *alloc();
+	char 		*c, *t, *w, *s, *get_var();
 	int  		i, r, pid;
 
 	for ( i = 0; (r = next_token(cmd, token)) > 0; i++ ) {
